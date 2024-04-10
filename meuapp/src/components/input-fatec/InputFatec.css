@@ -1,0 +1,7 @@
+.input-fatec{
+    color: red;
+}
+
+.input-fatec::placeholder{
+    color: red;
+}
