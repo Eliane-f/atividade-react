@@ -3,7 +3,10 @@ import { Link } from "react-router-dom"
 function Sobre(){
     return (
         <div>
-            <h1>Sobre</h1>
+            <p>Projeto desenvolvido por Eliane Fabre para a disciplina 
+                Programação Web do curso 'Análise e desenvolvimento de Sistemas' da FATEC Indaiatuba 
+                sob Orientação do Professor Felipe do Espirito Santo</p>
+            <hr /> {} 
             <Link to='/'>Voltar para Home</Link>
         </div>
     )
