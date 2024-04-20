@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 import Form from "../../components/form/index";
+import Layout from "../../components/layout";
 
 function Contatos(){
     return(
-        <div>
-        <Form />
-        <hr /> {} 
-        <footer><Link to='/'>Voltar para Home</Link></footer>
-        
-        </div>
+        <Layout>
+            <div>
+            <Form />
+            <hr /> {} 
+            </div>
+        </Layout>
     
     )
 }
