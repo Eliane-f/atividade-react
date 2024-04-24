@@ -5,9 +5,9 @@ import Layout from "../../components/layout";
 function Contatos(){
     return(
         <Layout>
-            <div>
-            <Form />
-            <hr /> {} 
+            <div style={{ marginTop: '30px' }}>
+                <Form />
+                <hr /> {} 
             </div>
         </Layout>
     

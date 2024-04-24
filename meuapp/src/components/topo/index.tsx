@@ -14,10 +14,12 @@ import {
     useColorModeValue,
     useBreakpointValue,
     useDisclosure,
+    Image,
   } from '@chakra-ui/react';
- 
+
   import { GiHamburgerMenu } from "react-icons/gi"
   import { IoCloseSharp, IoChevronDown, IoChevronForward } from "react-icons/io5"
+  import source from './logo.gif'
   
   export default function Topo() {
     const { isOpen, onToggle } = useDisclosure();
@@ -25,7 +27,7 @@ import {
     return (
       <Box>
         <Flex
-          bg={useColorModeValue('white', 'gray.800')}
+          bg={'lightgray'}
           color={useColorModeValue('gray.600', 'white')}
           minH={'60px'}
           py={{ base: 2 }}
@@ -48,12 +50,13 @@ import {
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
-              color={useColorModeValue('gray.800', 'white')}>
-              Logo
-            </Text>
+          <Link href="/" _hover={{ textDecoration: 'none' }}>
+          <Image
+              borderRadius='full'
+              boxSize='70px'
+              src={source}
+            />
+          </Link>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
@@ -79,7 +82,7 @@ import {
               fontSize={'sm'}
               fontWeight={600}
               color={'white'}
-              bg={'pink.400'}
+              bg={'gray'}
               href={'#'}
               _hover={{
                 bg: 'pink.300',

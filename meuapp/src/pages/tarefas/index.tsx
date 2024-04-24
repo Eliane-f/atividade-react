@@ -1,23 +1,24 @@
 import Layout from "../../components/layout";
-import { Input ,Checkbox, CheckboxGroup } from '@chakra-ui/react';
 import NovaTarefa from "../../components/nova-tarefa";
+import Tarefa from "../../components/tarefa";
+
 
 function Atividades(){
     return(
         <Layout>
-            <div>
+            <div style={{ marginTop: '40px' }}>
                 <h1>Lista de tarefas</h1>
-                <hr /> {}
             </div>
-            <div>
-            <h2>Insirir nova tarefa</h2>
-            <NovaTarefa></NovaTarefa>
-            <p>Criar Projeto</p>
-            <p>Criar Componentes</p>
-            <p>Criar Páginas</p>
-            <p>Criar Estilização</p>
-            <hr /> {} 
-            
+            <div style={{ marginTop: '20px' }}>
+                <hr /> {}
+                <h2 style={{fontWeight: 'bold'}}>Insirir nova tarefa</h2>
+                <NovaTarefa></NovaTarefa>
+                <hr /> {}
+                
+                <Tarefa tarefa='Tarefa 1' ></Tarefa>
+                <Tarefa tarefa='Tarefa 2' ></Tarefa>
+                <Tarefa tarefa='Tarefa 3' ></Tarefa>
+                <Tarefa tarefa='Tarefa 4' ></Tarefa>
             </div>
         </Layout>
     )

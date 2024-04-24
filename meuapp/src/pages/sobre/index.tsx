@@ -4,7 +4,7 @@ import Layout from "../../components/layout"
 function Sobre(){
     return (
         <Layout>
-            <div>
+            <div style={{ margin: '40px' }}>
                 <p>Projeto desenvolvido por Eliane Fabre para a disciplina 
                     Programação Web do curso 'Análise e desenvolvimento de Sistemas' da FATEC Indaiatuba 
                     sob Orientação do Professor Felipe do Espirito Santo</p>
