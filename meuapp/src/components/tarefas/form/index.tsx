@@ -1,31 +1,34 @@
 import { Button, Checkbox, Flex, Input } from "@chakra-ui/react"
 import { useEffect, useRef, useState } from "react"
-import { Tarefa } from "../../../interfaces/tarefa"
+import { PostTarefa, Tarefa } from "../../../interfaces/tarefa"
+import api from "../../../helpers/axios"
 
 
 interface FormTarefaProps {
-    tarefas: Tarefa[]
-    setTarefas(tarefas:Tarefa[]): void
+    carregarLista(): void
 }
 
-function FormTarefa({tarefas, setTarefas}: FormTarefaProps){
+function FormTarefa({carregarLista}: FormTarefaProps){
     const [nomeTarefa, setNomeTarefa] = useState('')
+    const [realizadaTarefa, setRealizadaTarefa] = useState(false)
 
     function adicionarTarefa(){
-        if(tarefas.length > 0){
-            const ultimoId = tarefas[tarefas.length-1].id
-            const novaTarefa = {
-                id: ultimoId + 1,
-                nome: nomeTarefa,
-                concluida: false
+        if(nomeTarefa != ''){
+            const novaTarefa:PostTarefa = {
+                title: nomeTarefa,
+                completed: realizadaTarefa
             }
-            setTarefas([...tarefas,novaTarefa])
+            api.post('/task',novaTarefa)
+            .then(() => {
+                setNomeTarefa('')
+                carregarLista()
+            })
         }
     }
 
-    const inputTarefa = useRef(null)
 
     
+    const inputTarefa = useRef<HTMLInputElement | null>(null)
     useEffect(() => {
         if(inputTarefa.current) inputTarefa.current.focus()
     }, [])
@@ -38,7 +41,10 @@ function FormTarefa({tarefas, setTarefas}: FormTarefaProps){
             onChange={(evento) => setNomeTarefa(evento.target.value)}
             placeholder="Título da tarefa" 
             size='md' />
-            <Checkbox>Realizado?</Checkbox>
+             <Checkbox 
+                onChange={(evento) => setRealizadaTarefa(evento.target.checked)}>
+                Realizado?
+            </Checkbox>
             <Button onClick={adicionarTarefa} colorScheme="blue">Adicionar</Button>
         </Flex>
     )
